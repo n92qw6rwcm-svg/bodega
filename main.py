@@ -1,0 +1,123 @@
+'''
+Lógica principal
+'''
+
+from datos import cargar_inventario, guardar_inventario
+import logica
+import interfaz
+
+bodega = cargar_inventario()
+
+
+while True:
+
+    interfaz.mostrar_menu()
+
+    eleccion = interfaz.pedir_eleccion()
+
+    if eleccion == 1:
+
+        try:
+            nombre_producto = interfaz.pedir_nombre()
+            cantidad_producto = interfaz.pedir_cantidad()
+            stock_minimo_producto = interfaz.pedir_stock_minimo()
+            logica.agregar_producto(bodega,
+                                    nombre_producto,
+                                    cantidad_producto, stock_minimo_producto)
+
+        except ValueError as e:
+            interfaz.mostrar_error(e)
+
+        else:
+            guardar_inventario(bodega)
+            interfaz.msn_guardado()
+
+        finally:
+            interfaz.continuar()
+
+    if eleccion == 2:
+
+        try:
+            nombre_producto = interfaz.pedir_nombre()
+            unidad_producto = interfaz.pedir_unidades_agregar()
+
+            logica.registrar_entrada(bodega,
+                                     nombre_producto,
+                                     unidad_producto)
+
+        except ValueError as e:
+            interfaz.mostrar_error(e)
+
+        else:
+            guardar_inventario(bodega)
+            interfaz.msn_guardado()
+
+        finally:
+            interfaz.continuar()
+
+    if eleccion == 3:
+
+        try:
+            nombre_producto = interfaz.pedir_nombre()
+            unidad_producto = interfaz.pedir_unidades_retirar()
+
+            alerta = logica.registrar_salida(bodega,
+                                             nombre_producto,
+                                             unidad_producto)
+
+        except ValueError as e:
+            interfaz.mostrar_error(e)
+
+        else:
+            guardar_inventario(bodega)
+            if alerta:
+                interfaz.mostrar_alerta(alerta)
+            else:
+                interfaz.msn_guardado()
+
+        finally:
+            interfaz.continuar()
+
+    if eleccion == 4:
+
+        mostrar_inventario = logica.consultar_inventario(bodega)
+        interfaz.mostrar_inventario(mostrar_inventario)
+
+        interfaz.continuar()
+
+    if eleccion == 5:
+
+        try:
+            nombre_producto = interfaz.pedir_nombre()
+            mostrar_producto = logica.consultar_producto(bodega,
+                                                         nombre_producto)
+            interfaz.mostrar_producto(mostrar_producto)
+
+        except ValueError as e:
+            interfaz.mostrar_error(e)
+
+        finally:
+            interfaz.continuar()
+
+    if eleccion == 6:
+
+        try:
+            nombre_producto = interfaz.pedir_nombre()
+            logica.eliminar_producto(bodega, nombre_producto)
+
+        except ValueError as e:
+            interfaz.mostrar_error(e)
+
+        else:
+            guardar_inventario(bodega)
+            interfaz.msn_eliminacion()
+
+        finally:
+            interfaz.continuar()
+
+    if eleccion == 7:
+        interfaz.msn_finalizar_programa()
+        break
+
+
+# Hay que revisar la elección 3. El mensaje cuando se pasa un valor superior al que hay disponible no concuerda con la operación. Debería ser algo como cantidad ingresada es superior a la disponible o existente. Además, debería decir cuantas hay disponibles y permitir o no sacarlas todas. Revisar con calma. Lo que no es negociable es lo del mensaje.
