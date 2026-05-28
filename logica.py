@@ -74,7 +74,7 @@ def registrar_salida(inventario, nombre, unidades_a_despachar):
     Raises: 
         ValueError: Si las unidades a despachar son menores a cero.
         ValueError: Si el producto no existe en el inventario.
-        ValueError: Si la diferencia entre cantidad del producto y unidades a despachar es menor a cero.
+        ValueError: Si las unidades a despachar superan la cantidad disponible en el inventario.
     '''
     if unidades_a_despachar < 0:
         raise ValueError('Error: No se permiten negativos')
@@ -85,7 +85,8 @@ def registrar_salida(inventario, nombre, unidades_a_despachar):
     for producto in inventario:
         if nombre == producto['nombre']:
             if producto['cantidad'] - unidades_a_despachar < 0:
-                raise ValueError('Error: No se permiten negativos')
+                raise ValueError(
+                    'Error: La cantidad solicitada supera la cantidad disponible')
 
             producto['cantidad'] = producto['cantidad'] - unidades_a_despachar
 
