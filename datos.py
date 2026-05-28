@@ -11,7 +11,10 @@ def cargar_inventario():
     Carga y retorna datos desde el disco.
 
     Returns:
-        list: Inventario cargado desde el archivo. Lista vacía si el archivo no existe o tiene un error de formato.
+        list: Inventario cargado desde el archivo. 
+
+    Raises:
+        ValueError: El archivo no existe o no puede leerse
     '''
     ruta = os.path.join('data', 'inventario.json')
 
@@ -20,13 +23,11 @@ def cargar_inventario():
             contenido = json.load(file)
 
     # los print no deben ir aquí sino en interfaz... Diseño
-    except FileNotFoundError:
-        print('El archivo o carpeta no existe')
-        return []
+    except FileNotFoundError as e:
+        raise ValueError('El archivo o carpeta no existe') from e
 
     except json.JSONDecodeError as e:
-        print(f'Error json --> {e}')
-        return []
+        raise ValueError('No se puede leer el archivo') from e
 
     return contenido
 

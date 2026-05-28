@@ -265,4 +265,5 @@ if __name__ == '__main__':
     products = [{'nombre': 'coco',
                  'cantidad': 2,
                  'stock_minimo': 1}]
-    mostrar_inventario(products)
+    stock = pedir_stock_minimo()
+    print(stock)

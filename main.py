@@ -1,13 +1,18 @@
 '''
-Lógica principal
+Importa y coordina los demás módulos. 
 '''
-
+import sys
 from datos import cargar_inventario, guardar_inventario
 import logica
 import interfaz
 
-bodega = cargar_inventario()
 
+try:
+    bodega = cargar_inventario()
+
+except ValueError as e:
+    interfaz.mostrar_error(e)
+    sys.exit()
 
 while True:
 
