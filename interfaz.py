@@ -244,6 +244,20 @@ def msn_eliminacion():
     print('Eliminado con éxito')
 
 
+def msn_agregado_exitoso():
+    '''
+    Imprime -en consola- mensaje de agregado con éxito
+    '''
+    print('Producto agregado con éxito.')
+
+
+def msn_retiro_exitoso():
+    '''
+    Imprime -en consola- mensaje de retiro con éxito
+    '''
+    print('Retiro exitoso.')
+
+
 def msn_finalizar_programa():
     '''
     Imprime mensaje de finalización del programa

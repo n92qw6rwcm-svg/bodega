@@ -14,7 +14,7 @@ def cargar_inventario():
         list: Inventario cargado desde el archivo. 
 
     Raises:
-        ValueError: El archivo no existe o no puede leerse
+        ValueError: El archivo no existe o no puede leerse.
     '''
     ruta = os.path.join('data', 'inventario.json')
 
@@ -22,7 +22,6 @@ def cargar_inventario():
         with open(ruta, 'r', encoding='utf-8') as file:
             contenido = json.load(file)
 
-    # los print no deben ir aquí sino en interfaz... Diseño
     except FileNotFoundError as e:
         raise ValueError('El archivo o carpeta no existe') from e
 

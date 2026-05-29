@@ -91,7 +91,7 @@ def registrar_salida(inventario, nombre, unidades_a_despachar):
             producto['cantidad'] = producto['cantidad'] - unidades_a_despachar
 
             if producto['cantidad'] <= producto['stock_minimo']:
-                return f'Disclaimer: Cantidad del producto {nombre} por debajo del mínimo'
+                return f'Disclaimer: Cantidad del producto {nombre} por debajo del mínimo.\nQuedan : {producto['cantidad']}'
 
 
 def consultar_inventario(inventario):

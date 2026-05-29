@@ -55,7 +55,7 @@ while True:
 
         else:
             guardar_inventario(bodega)
-            interfaz.msn_guardado()
+            interfaz.msn_agregado_exitoso()
 
         finally:
             interfaz.continuar()
@@ -76,9 +76,10 @@ while True:
         else:
             guardar_inventario(bodega)
             if alerta:
+                interfaz.msn_retiro_exitoso()
                 interfaz.mostrar_alerta(alerta)
             else:
-                interfaz.msn_guardado()
+                interfaz.msn_retiro_exitoso()
 
         finally:
             interfaz.continuar()
