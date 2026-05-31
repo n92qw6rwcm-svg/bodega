@@ -21,6 +21,9 @@ def agregar_producto(inventario, nombre, cantidad, stock_minimo):
         ValueError: Si la cantidad o el stock_minimo son menores a cero. 
     '''
 
+    if not nombre:
+        raise ValueError('Error: El nombre no puede estar vacío')
+
     if any(producto['nombre'] == nombre for producto in inventario):
         raise ValueError("Error: Producto existente")
 
@@ -151,3 +154,15 @@ def eliminar_producto(inventario, nombre):
     for producto in inventario:
         if nombre == producto['nombre']:
             inventario.remove(producto)
+
+
+if __name__ == '__main__':
+    inv = []
+    try:
+        agregar_producto(inv, '', 1, 0)
+
+    except ValueError as e:
+        print(f'Error: {e}')
+
+    else:
+        print(inv)
