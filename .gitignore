@@ -2,4 +2,6 @@ __pycache__/
 bodega.code-workspace
 data/
 venv/
-anotaciones/
+anotaciones.txt
+tasks.txt
+.pytest_cache/
