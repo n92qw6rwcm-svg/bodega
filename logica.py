@@ -41,7 +41,8 @@ def registrar_entrada(inventario, nombre, unidades_a_agregar):
     Args: 
         inventario(list): inventario del sistema.
         nombre(str): nombre del producto. No puede estar vacío.
-        unidades_a_agregar(int): valor que representa las unidades de producto a agregar. Debe ser mayor o igual a cero.
+        unidades_a_agregar(int): valor que representa las unidades de producto a agregar. 
+        Debe ser mayor o igual a cero.
 
     Returns:
         None
@@ -68,7 +69,8 @@ def registrar_salida(inventario, nombre, unidades_a_despachar):
     Args: 
         inventario(list): inventario del sistema.
         nombre(str): nombre del producto. No puede estar vacío.
-        unidades_a_despachar(int): valor que representa las unidades de producto a despachar. No debe ser menor a cero.
+        unidades_a_despachar(int): valor que representa las unidades de producto a despachar. 
+        No debe ser menor a cero.
 
     Returns:
         str: Mensaje de advertencia si la cantidad queda por debajo del stock mínimo.
@@ -94,7 +96,7 @@ def registrar_salida(inventario, nombre, unidades_a_despachar):
             producto['cantidad'] = producto['cantidad'] - unidades_a_despachar
 
             if producto['cantidad'] <= producto['stock_minimo']:
-                return f'Disclaimer: Cantidad del producto {nombre} por debajo del mínimo.\nQuedan : {producto['cantidad']}'
+                return f'Disclaimer: Cantidad del producto {nombre} \nDebajo del mínimo.\nQuedan: {producto['cantidad']}'
 
 
 def consultar_inventario(inventario):
@@ -142,7 +144,7 @@ def eliminar_producto(inventario, nombre):
 
     Returns:
         None
-        # consultar sobre qué es y cómo funciona lo de las listas con las funciones. He leído sobre en lugar y no lugar. Debe haber alguna relación. 
+
 
     Raises:
         ValueError: si el producto no existe en el inventario.

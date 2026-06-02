@@ -55,6 +55,7 @@ while True:
 
         else:
             guardar_inventario(bodega)
+
             interfaz.msn_agregado_exitoso()
 
         finally:
@@ -124,6 +125,3 @@ while True:
     if eleccion == 7:
         interfaz.msn_finalizar_programa()
         break
-
-
-# Hay que revisar la elección 3. El mensaje cuando se pasa un valor superior al que hay disponible no concuerda con la operación. Debería ser algo como cantidad ingresada es superior a la disponible o existente. Además, debería decir cuantas hay disponibles y permitir o no sacarlas todas. Revisar con calma. Lo que no es negociable es lo del mensaje.
