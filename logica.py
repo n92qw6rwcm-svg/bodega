@@ -17,6 +17,7 @@ def agregar_producto(inventario, nombre, cantidad, stock_minimo):
         None
 
     Raises: 
+        ValueError: Si el nombre está vacío.
         ValueError: Si el nombre coincide con alguno en la lista.
         ValueError: Si la cantidad o el stock_minimo son menores a cero. 
     '''
@@ -81,11 +82,11 @@ def registrar_salida(inventario, nombre, unidades_a_despachar):
         ValueError: Si el producto no existe en el inventario.
         ValueError: Si las unidades a despachar superan la cantidad disponible en el inventario.
     '''
-    if unidades_a_despachar < 0:
-        raise ValueError('Error: No se permiten negativos')
-
     if not any(producto['nombre'] == nombre for producto in inventario):
         raise ValueError('Error: Producto no existe')
+
+    if unidades_a_despachar < 0:
+        raise ValueError('Error: No se permiten negativos')
 
     for producto in inventario:
         if nombre == producto['nombre']:
@@ -160,11 +161,4 @@ def eliminar_producto(inventario, nombre):
 
 if __name__ == '__main__':
     inv = []
-    try:
-        agregar_producto(inv, '', 1, 0)
-
-    except ValueError as e:
-        print(f'Error: {e}')
-
-    else:
-        print(inv)
+    registrar_salida(inv, 'pan', 1)
