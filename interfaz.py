@@ -1,8 +1,6 @@
 '''
-Módulo diseño visual
-Mostrar menú
-pedir datos al usuario
-mostrar resultados, errores y advertencias
+Módulo de interfaz. Responsable de la interacción con el usuario: 
+mostrar información y recibir datos.
 '''
 
 

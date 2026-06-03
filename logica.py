@@ -1,5 +1,5 @@
 '''
-Lógica del programa
+Responsable de las reglas de negocio y operaciones sobre el inventario.
 '''
 
 
@@ -133,6 +133,8 @@ def consultar_producto(inventario, nombre):
     for producto in inventario:
         if nombre == producto['nombre']:
             return producto
+
+    return [producto for producto in inventario if nombre == producto['nombreh']]
 
 
 def eliminar_producto(inventario, nombre):

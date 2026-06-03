@@ -1,6 +1,5 @@
 '''
-Contiene las funciones encargadas de la gestión del inventario:
-cargar y guardar
+Módulo de persistencia. Responsable de leer y escribir el inventario en disco.
 '''
 import os
 import json

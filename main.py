@@ -1,5 +1,6 @@
 '''
-Importa y coordina los demás módulos. 
+Módulo principal. Punto de entrada del programa. 
+Coordina el flujo de ejecución entre lógica, interfaz y persistencia.
 '''
 import sys
 from datos import cargar_inventario, guardar_inventario
